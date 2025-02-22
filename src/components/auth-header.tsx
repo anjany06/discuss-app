@@ -2,17 +2,17 @@
 import { useSession } from "next-auth/react";
 import React from "react";
 import { Button } from "./ui/button";
-import { signIn } from "@/app/actions/sign-in";
+import { signIn } from "@/actions/sign-in";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { PopoverTrigger } from "@radix-ui/react-popover";
 import { Popover, PopoverContent } from "./ui/popover";
 import { LogOut } from "lucide-react";
 import { Separator } from "./ui/separator";
-import { signOut } from "@/app/actions/sign-out";
+import { signOut } from "@/actions/sign-out";
 
 const AuthHeader = () => {
   const session = useSession();
-  
+
   // so jb logged in k refresh krke toh button se photo aane me delay hoga bcoz of useSession
   //delay handling
   if (!session.data?.user) return null;
