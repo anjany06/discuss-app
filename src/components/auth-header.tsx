@@ -15,7 +15,7 @@ const AuthHeader = () => {
 
   // so jb logged in k refresh krke toh button se photo aane me delay hoga bcoz of useSession
   //delay handling
-  if (!session.data?.user) return null;
+  if (session.status === "loading") return null;
 
   let authContent: React.ReactNode;
   if (session.data?.user) {
