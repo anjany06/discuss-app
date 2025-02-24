@@ -19,3 +19,17 @@ export const fetchPostByTopicSlug = async( slug : string) : Promise<PostWithData
    }
   })
 }
+
+export const fetchTopPosts = async() : Promise<PostWithData[]> =>{
+return prisma.post.findMany({
+  orderBy:[
+    { Comment: { _count: 'desc' } },
+  ],
+  include:{
+    Topic:{select:{slug:true}},
+    _count:{select:{Comment:true}},
+    User:{select:{name:true}}
+  },
+  take:5
+})
+}
