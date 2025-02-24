@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import CommentList from "@/components/comments/comment-list";
 
 type PostShowPageProps = {
   params: Promise<{ slug: string; postId: string }>;
@@ -11,6 +12,7 @@ type PostShowPageProps = {
 
 const PageShowPage: React.FC<PostShowPageProps> = async ({ params }) => {
   const { slug, postId } = await params;
+  
   return (
     <div className="space-y-3">
       <Link href={`/topic/${slug}`}>
@@ -20,7 +22,8 @@ const PageShowPage: React.FC<PostShowPageProps> = async ({ params }) => {
         </Button>
       </Link>
       <PostShow postId={postId} />
-      <CommentCreateForm postId={postId} startOpen/>
+      <CommentCreateForm postId={postId} startOpen />
+      <CommentList postId = {postId}/>
     </div>
   );
 };

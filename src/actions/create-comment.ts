@@ -14,7 +14,6 @@ type createCommentState = {
   }
 }
 export const createComment = async({postId, parentId}:{postId : string, parentId : string},prevState:createCommentState, formData: FormData) : Promise<createCommentState> =>{
-
   const result = createCommentSchema.safeParse({
     content:formData.get('content')
   })

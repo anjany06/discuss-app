@@ -76,7 +76,7 @@ model Post {
 
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  User      User      @relation(fields: [userId], references: [id])
+  User      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   Topic     Topic     @relation(fields: [topicId], references: [id])
   Comment   Comment[]
 }
