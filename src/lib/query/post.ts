@@ -33,3 +33,18 @@ return prisma.post.findMany({
   take:5
 })
 }
+export const fetchPostBySearch = async(term : string) : Promise<PostWithData[]> =>{
+  return prisma.post.findMany({
+    include:{
+      Topic:{select:{slug: true}},
+      _count:{select:{Comment:true}},
+      User:{select:{name:true}}
+    },
+    where:{
+      OR:[
+        {title:{contains:term}},
+        {content:{contains:term}}
+      ]
+    }
+  })
+}

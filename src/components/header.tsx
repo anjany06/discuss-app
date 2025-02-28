@@ -1,6 +1,7 @@
 import React from "react";
-import { Input } from "./ui/input";
+
 import AuthHeader from "./auth-header";
+import SearchInput from "./search-input";
 
 const HeaderPage = async () => {
   // const session = await auth(); // yeh user info niklne ka tareeka sirf server comp me hi kaam krega
@@ -11,7 +12,7 @@ const HeaderPage = async () => {
         <h1 className="font-bold text-xl">Discuss</h1>
       </div>
       <div className="flex justify-center">
-        <Input type="text" placeholder="Search Post..." />
+        <SearchInput />
       </div>
       <div className="flex justify-end gap-2">
         <AuthHeader />
